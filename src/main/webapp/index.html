@@ -1,22 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="statusApp">
 <head>
     <meta charset="UTF-8">
     <title>Distributed Status</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/status.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="js/status_jq.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="js/status_ang.js"></script>
+
 </head>
 <body>
-<div>
-    <p>The IP is <span class="status-ip"></span></p>
 
-    <p>The cpu usage, %: <span class="status-cpuUsage"></span></p>
-    <p>Free memory, GB:  <span class="status-freeMemory"></span></p>
-    <p>Total memory, GB: <span class="status-totalMemory"></span></p>
-</div>
-<h4>Response headers:</h4>
+<div class="container">
 
-<div class="response-headers">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 h1">
+                Status by jQuery
+            </div>
+            <div class="col-md-6 h1">
+                <button type="button" id="refresh_btn" class="btn btn-primary">Refresh</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="well well-lg">
+        <p>The IP is <span class="status-ip"></span></p>
+
+        <p>The cpu usage, %: <span class="status-cpuUsage"></span></p>
+
+        <p>Free memory, GB : <span class="status-freeMemory"></span></p>
+
+        <p>Total memory, GB: <span class="status-totalMemory"></span></p>
+    </div>
+
+    <div ng-controller="statusController">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 h1">
+                    Status by AngularJS
+                </div>
+                <div class="col-md-6 h1">
+                    <button type="button" id="refresh_ang_btn" class="btn btn-primary" ng-click="refresh_btn($event)">Refresh</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <label>Name:</label>
+            <input type="text" ng-model="yourName" placeholder="Enter a name here">
+            <hr>
+            <h1>Hello {{yourName}}!</h1>
+        </div>
+
+        <div class="well well-lg">
+            <p>The IP is {{ip}}</p>
+
+            <p>The cpu usage, %: {{cpuUsage}}</p>
+
+            <p>Free memory, GB : {{freeMemory}}</p>
+
+            <p>Total memory, GB: {{totalMemory}}</p>
+        </div>
+
+    </div>
 </div>
+
 </body>
 </html>

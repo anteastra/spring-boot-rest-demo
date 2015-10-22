@@ -21,7 +21,7 @@ public class StatusController {
         String free = PerformanceMonitor.getFreePhysicalMemory().toString();
         String total = PerformanceMonitor.getTotalPhysicalMemory().toString();
 
-        Status status = new Status("localhost:"+PerformanceMonitor.port, cpu, free, total);
+        Status status = new Status("localhost:" + PerformanceMonitor.port, cpu, free, total);
         return status;
     }
 }

@@ -6,7 +6,12 @@ $(document).ready(function() {
 
     var interval = 500;   //number of mili seconds between each call
     var refresh;
+    var isRefreshOn = true;
+
     refresh = function () {
+        if (!isRefreshOn) {
+            return;
+        }
         $.ajax({
             url: "http://localhost:8080/status"
         }).then(function (data, status, jqxhr) {
@@ -20,5 +25,17 @@ $(document).ready(function() {
             }, interval);
         });
     };
+
+    $( "#refresh_btn" ).click(function() {
+        $( "#refresh_btn" ).toggleClass( "active" );
+        if ($( "#refresh_btn" ).hasClass( "active" )) {
+            isRefreshOn = true;
+            refresh();
+        } else {
+            isRefreshOn = false;
+        }
+    });
+
     refresh();
+    isRefreshOn = false;
 });
