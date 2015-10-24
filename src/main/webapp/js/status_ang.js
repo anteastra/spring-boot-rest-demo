@@ -13,7 +13,7 @@ statusApp.controller("statusController", function ($scope, $http) {
         if (!$scope.isRefreshOn) {
             return;
         }
-        $http.get("https://localhost:8080/status").success(function(data) {
+        $http.get("https://localhost:8081/status").success(function(data) {
             $scope.ip = data.ip;
             $scope.cpuUsage = data.cpuUsage;
             $scope.freeMemory = data.freeMemory;
