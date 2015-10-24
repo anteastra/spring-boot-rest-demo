@@ -1,7 +1,6 @@
 package com.status.utils;
 
 import com.sun.management.OperatingSystemMXBean;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.management.*;
 import java.lang.management.ManagementFactory;

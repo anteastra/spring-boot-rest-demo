@@ -13,7 +13,7 @@ $(document).ready(function() {
             return;
         }
         $.ajax({
-            url: "http://localhost:8080/status"
+            url: "https://localhost:8080/status"
         }).then(function (data, status, jqxhr) {
             $('.status-ip').text(data.ip);
             $('.status-cpuUsage').text(data.cpuUsage);
