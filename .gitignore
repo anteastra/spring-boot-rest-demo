@@ -1,3 +1,4 @@
 .idea
 /spring-boot-status.iml
 /target/classes/com/status/*.class
+/target/classes
